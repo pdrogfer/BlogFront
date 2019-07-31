@@ -21,7 +21,7 @@ export class PostCreateComponent implements OnInit {
     let dummyPost = new Post();
     dummyPost.title = "New Post Title"
     dummyPost.content = "New Post Content"
-    this.postService.create(dummyPost).then(response => {
+    this.postService.createNewPost(dummyPost).then(response => {
       console.log("New Post:");
       console.log(response);
     })

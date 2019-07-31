@@ -18,8 +18,13 @@ export class PostService {
     return this.http.get<Post[]>(this.baseUrl + "/").toPromise();
   }
 
+  // GET http://localhost:3000/api/posts/1234
+  getPostById(postId): Promise<Post> {
+    return this.http.get<Post>(this.baseUrl + "/" + postId).toPromise();
+  }
+
   // POST http://localhost:3000/api/posts/create
-  create(values): Promise<Post> {
+  createNewPost(values): Promise<Post> {
     return this.http.post<Post>(this.baseUrl + "/new", values).toPromise();
   }
 }
