@@ -4,8 +4,11 @@
 <button>Nueva Entrada</button>
 
 <div *ngFor="let post of arrPosts">
-    <div>
-        <h3>{{post.title}}</h3>
+    <div class="card" style="width: 800px">
+        <h3 class="card-title">{{post.title}}</h3>
         <p>{{post.content}}</p>
+        <div>
+            <button [routerLink]="['/detail', post._id]" class="btn btn-small btn-info">Leer</button>
+        </div>
     </div>
 </div>
