@@ -2,6 +2,7 @@
     <h3 class="card-title pt-2 text-center">{{post.title}}</h3>
     <div class="card-body">
         <p class="card-text">{{post.content}}</p>
+        <button [routerLink]="['/edit', post._id]" class="btn btn-small btn-info">Editar</button>
         <button (click)="deletePost(post)" class="btn btn-small btn-danger">Eliminar</button>
     </div>
 </div>

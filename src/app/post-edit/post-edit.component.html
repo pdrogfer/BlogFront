@@ -1,0 +1,15 @@
+<div class="card mb-3 p-3">
+    <h3 class="card-title">Editar Entrada:</h3>
+
+    <form [formGroup]="formulary" (ngSubmit)="sendFormEditPost()">
+        <div class="form-group">
+            <label>Titulo</label>
+            <input type="text" class="form-control" [value]="post.title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label>Contenido</label>
+            <input type="text" rows="6" class="form-control" [value]="post.content" formControlName="content">
+        </div>
+        <input type="submit" value="Editar" class="btn btn-primary">
+    </form>
+</div>

@@ -28,7 +28,6 @@ export class PostCreateComponent implements OnInit {
     console.log(this.formulary.value);
 
     try {
-      let newPost = this.formulary.value;
       await this.postService.createNewPost(this.formulary.value);
       this.router.navigate(['/'])
     } catch (err) {

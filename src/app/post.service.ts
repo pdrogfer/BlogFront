@@ -37,4 +37,9 @@ export class PostService {
     }
     return this.http.delete<Post>(this.baseUrl + "/delete", httpOptions).toPromise();
   }
+
+  updatePost(postId, values): Promise<Post> {
+    values.postId = postId;
+    return this.http.put<Post>(this.baseUrl + "/edit", values).toPromise();
+  }
 }
