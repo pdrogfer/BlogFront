@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
-import { Post } from '../models/post.model';
-
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-create',
@@ -10,21 +10,30 @@ import { Post } from '../models/post.model';
 })
 export class PostCreateComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  formulary: FormGroup
+  errors: any[]
+
+  constructor(private postService: PostService, private router: Router) {
+
+    this.formulary = new FormGroup({
+      title: new FormControl(''),
+      content: new FormControl('')
+    });
+  }
 
   ngOnInit() {
-    this.sendFormulary()
   }
 
-  sendFormulary() {
+  async sendFormNewPost() {
+    console.log(this.formulary.value);
 
-    let dummyPost = new Post();
-    dummyPost.title = "New Post Title"
-    dummyPost.content = "New Post Content"
-    this.postService.createNewPost(dummyPost).then(response => {
-      console.log("New Post:");
-      console.log(response);
-    })
+    try {
+      let newPost = this.formulary.value;
+      await this.postService.createNewPost(this.formulary.value);
+      this.router.navigate(['/'])
+    } catch (err) {
+      console.log(err.error);
+      this.errors = err.error;
+    }
   }
-
 }

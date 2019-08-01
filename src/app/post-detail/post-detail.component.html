@@ -1,8 +1,7 @@
-<div class="col-8">
-    <div class="card">
-        <h3 class="card-title text-center">{{post.title}}</h3>
-        <div class="card-body text-center">
-            <p class="card-text">{{post.content}}</p>
-        </div>
+<div class="card m-3">
+    <h3 class="card-title pt-2 text-center">{{post.title}}</h3>
+    <div class="card-body">
+        <p class="card-text">{{post.content}}</p>
+        <button (click)="deletePost(post)" class="btn btn-small btn-danger">Eliminar</button>
     </div>
 </div>

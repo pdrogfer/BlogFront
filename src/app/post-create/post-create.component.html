@@ -1,1 +1,15 @@
-<p>post-create works!</p>
+<div class="card mb-3 p-3">
+    <h3 class="card-title">Nueva Entrada:</h3>
+
+    <form [formGroup]="formulary" (ngSubmit)="sendFormNewPost()">
+        <div class="form-group">
+            <label>Titulo</label>
+            <input type="text" class="form-control" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label>Contenido</label>
+            <input type="text" rows="6" class="form-control" formControlName="content">
+        </div>
+        <input type="submit" value="Crear" class="btn btn-primary">
+    </form>
+</div>

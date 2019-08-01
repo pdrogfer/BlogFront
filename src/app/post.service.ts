@@ -27,4 +27,14 @@ export class PostService {
   createNewPost(values): Promise<Post> {
     return this.http.post<Post>(this.baseUrl + "/new", values).toPromise();
   }
+
+  deletePost(post): Promise<Post> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      body: {
+        postId: post._id
+      }
+    }
+    return this.http.delete<Post>(this.baseUrl + "/delete", httpOptions).toPromise();
+  }
 }

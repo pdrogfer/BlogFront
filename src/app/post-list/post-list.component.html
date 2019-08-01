@@ -1,10 +1,10 @@
 <h1>Blog de Pedro Gonzalez</h1>
 <p>Un montón de ideas una detrás de otra</p>
 <p></p>
-<button>Nueva Entrada</button>
-
+<button [routerLink]="['/new']" class="btn btn-primary">Nueva Entrada</button>
+<p></p>
 <div *ngFor="let post of arrPosts">
-    <div class="card" style="width: 800px">
+    <div class="card mb-3 p-3">
         <h3 class="card-title">{{post.title}}</h3>
         <p>{{post.content}}</p>
         <div>

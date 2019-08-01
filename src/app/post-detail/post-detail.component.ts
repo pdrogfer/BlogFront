@@ -31,4 +31,11 @@ export class PostDetailComponent implements OnInit {
       })
     })
   }
+
+  deletePost(post) {
+    this.postService.deletePost(post).then(response => {
+      console.log(response)
+      this.router.navigate(['/'])
+    })
+  }
 }
